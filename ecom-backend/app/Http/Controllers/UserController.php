@@ -23,7 +23,11 @@ class UserController extends Controller
     function  login (Request $req)
     {
         $user = ecomdatabases::where('email', $req->email)->first();
-        
+        if(!$user || !Hash::check($req->password,$user->password))
+        {
+            return ["error"=>"Email or password is not matched"];
+        }
+
         return $user;
     }
 }

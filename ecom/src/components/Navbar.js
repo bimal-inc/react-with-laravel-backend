@@ -3,6 +3,7 @@ import { NavLink, Link, useHistory } from "react-router-dom";
 
 
 
+
 function Navbar() {
 
   const user= JSON.parse(localStorage.getItem('user-info'))
@@ -75,10 +76,10 @@ function Navbar() {
             </ul>
 
             {localStorage.getItem('user-info')?
-            <div class="btn-group mr-3" >
-  <button type="button" class="btn btn-danger dropdown-toggle "  data-bs-toggle="dropdown" >{ user && user.name } </button>
-  <ul class="dropdown-menu ">
-    <li><a class="dropdown-item " onClick={Logout} href="#">Logout</a></li>
+            <div className="btn-group mr-3" >
+  <button type="button" className="btn btn-danger dropdown-toggle "  data-bs-toggle="dropdown" >{ user && user.name } </button>
+  <ul className="dropdown-menu ">
+    <li><a className="dropdown-item " onClick={Logout} href="#">Logout</a></li>
   
   </ul>
 </div>
