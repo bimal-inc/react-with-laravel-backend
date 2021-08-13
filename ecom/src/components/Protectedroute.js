@@ -1,26 +1,28 @@
-import React from 'react'
-import Navbar from './Navbar'
 import { useState, useEffect} from 'react'
 import {useHistory} from 'react-router-dom'
 
-function Login() {
+function Protectedroute(props) {
 
+    
+
+    let Cmp=props.Cmp
     const userhistory=useHistory();
 
+    
+
     useEffect(()=>{
-        if(localStorage.getItem('user-info'))
+        if(!localStorage.getItem('user-info'))
         {
-          userhistory.push("/add")
+          userhistory.push("/register")
         }
         
   
     },[])
     return (
         <div>
-            <Navbar />
-            <h1>hello</h1>
+            <Cmp />
         </div>
     )
 }
 
-export default Login
+export default Protectedroute
